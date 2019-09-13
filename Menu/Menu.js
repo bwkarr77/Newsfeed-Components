@@ -1,13 +1,70 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
+
+function createMenu(menuData) {
+  //CREATE ELEMENTS
+  const menuItem = document.createElement("li");
+  //SET STRUCTURE
+  menuList.appendChild(menuItem);
+  //SET CONTENT
+  menuItem.textContent = menuData;
+  //APPLY STYLES
+
+  //EVENT LISTENERS
+
+  return menuList;
+}
+
+/*Create Elements*/
+const menu = document.createElement("div");
+const menuList = document.createElement("ul");
+const menuButton = document.querySelector(".menu-button");
+const header = document.querySelector(".header");
+/*set structure*/
+header.appendChild(menu);
+/*set content*/
+menu.classList.add("menu");
+
+//--Creates menu items from an Object--
+menuItems.forEach(info => {
+  menu.appendChild(createMenu(info));
+});
+
+//Event Listener
+menuButton.addEventListener("click", e => {
+  menu.classList.toggle("menu--open");
+});
+
+/*
+
+More concise code
+const header = document.querySelector('.header h1');
+const menuBtn = document.querySelector('.menu-button');
+function createMenu(object) {
+ const menu = document.createElement("div");
+ const ul = document.createElement("ul");
+ object.forEach((i) => {
+   const li = document.createElement('li');
+   li.textContent = i;
+   ul.appendChild(li);
+ })
+ menu.appendChild(ul);
+ menu.classList.add('menu');
+ menuBtn.addEventListener("click", (event) => {
+   menu.classList.toggle(".menu--open");
+ });
+ return menu;
+}
+header.appendChild(createMenu(menuItems));
+*/
 
 /* 
 
